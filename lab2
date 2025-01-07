@@ -1,0 +1,16 @@
+#Run the command
+ssh-keygen -t rsa
+#It will prompt for key, provide the name "remote"
+#It will generate remote, remote.pub
+#Create the .gitignore file using vi editor
+#add remote and remote.pub
+#add,commit and push .gitignore file
+#Get the remote server ip address, and user name
+#ip addr show
+#Run from control node, below is the example, please make sure you provide your user,and ip address
+ssh-copy-id -i remote.pub amit@192.168.111.131
+#Create one more inventory file, inventory1.ini
+[remote]
+192.168.111.131 ansible_connection=ssh ansible_user=amit ansible_ssh_private_key_file=/home/amit/learninggit/remote
+#run following command
+ansible -i inventory1.ini remote -m ping
