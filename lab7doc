@@ -1,0 +1,3 @@
+#Check lab7.yaml
+ ansible-playbook -i inventory2.ini lab7.yaml --tags print_message
+#assignement, modify lab7.yaml try variable for apache module

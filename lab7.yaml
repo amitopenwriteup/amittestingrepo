@@ -1,0 +1,22 @@
+- name: My first play
+  hosts: remote
+  vars:
+    my_msg_var: Hello Learners
+  tasks:
+   - name: Ping my hosts
+     ansible.builtin.ping:
+   - name: Print message
+     ansible.builtin.debug:
+       var: my_msg_var
+  tags: print_message
+- name: Install module
+  hosts: all
+  become: true
+  become_user: amit
+  tasks:
+   - name: install apace
+     ansible.builtin.apt:
+      name: apache2
+      state: present
+  tags: apache_install
+
