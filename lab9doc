@@ -1,0 +1,3 @@
+#check lab9.yaml
+#Run following command
+ansible-playbook -i inventory2.ini lab9.yaml

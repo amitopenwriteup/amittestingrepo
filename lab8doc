@@ -1,0 +1,2 @@
+#Check the lab8.yaml
+ansible-playbook -i inventory2.ini lab8.yaml --tags check_test
