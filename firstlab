@@ -1,0 +1,3 @@
+ansible all -i inventory.ini -m ping
+
+ansible target -i inventory.ini -m ping
