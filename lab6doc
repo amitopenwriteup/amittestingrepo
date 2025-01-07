@@ -1,0 +1,4 @@
+#add tags
+#check lab6.yaml
+ ansible-playbook -i inventory2.ini lab6.yaml --tags apache_install
+  ansible-playbook -i inventory2.ini lab6.yaml --tags print_message
