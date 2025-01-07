@@ -1,0 +1,2 @@
+#check lab11.yaml
+ ansible-playbook -i inventory2.ini lab11.yaml
