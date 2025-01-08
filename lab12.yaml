@@ -1,0 +1,21 @@
+---
+- name: linux
+  hosts: all
+  become: true
+  become_user: amit
+  vars:
+    package_names:
+      - sshd
+      - apache2
+  tasks:
+    - name: "Check packages are installed"
+      command: which "{{ item }}"
+      loop: "{{ package_names }}"
+      register: package_check
+      ignore_errors: true
+
+    - name: "Print the result"
+      debug:
+        msg: "Packages are installed"
+      when: package_check is not failed
+
