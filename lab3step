@@ -1,3 +1,4 @@
 #check the built in module
 #check for ping and  debug
 #https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html#ansible-collections-ansible-builtin-debug-module
+ansible-playbook -i inventory2.ini lab3.yaml

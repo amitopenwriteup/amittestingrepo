@@ -1,0 +1,17 @@
+---
+- name: assessment
+  hosts: all
+  become: true
+  become_user: amit
+  tasks:
+    - name: Install apache httpd
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: index.html
+        dest: /tmp/html
+        owner: amit
+        group: amit
+        mode: '0644'
