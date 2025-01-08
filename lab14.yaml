@@ -1,0 +1,24 @@
+---
+- name: Restart web services and handlers
+  hosts: all
+  become: true
+  become_user: amit
+  tasks:
+    - name: Restart everything
+      ansible.builtin.command:
+        cmd: echo "This task will restart the web services"
+      notify: "restart web services"
+
+  handlers:
+    - name: Restart 
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+      listen: "restart web services"
+
+    - name: Restart apache
+      ansible.builtin.service:
+        name: apache2
+        state: restarted
+      listen: "restart web services"
+
