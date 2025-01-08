@@ -1,0 +1,39 @@
+# Sample Apache HTTP Server Configuration Template
+
+ServerName {{ server_name }}
+
+<VirtualHost *:{{ myport }}>
+    ServerAdmin {{ server_admin }}
+    DocumentRoot {{ document_root }}
+    
+    <Directory {{ document_root }}>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog {{ log_dir }}/error.log
+    CustomLog {{ log_dir }}/access.log combined
+</VirtualHost>
+
+# SSL Configuration (optional)
+{% if enable_ssl %}
+<VirtualHost *:443>
+    ServerName {{ server_name }}
+    DocumentRoot {{ document_root }}
+    
+    SSLEngine on
+    SSLCertificateFile {{ ssl_certificate_file }}
+    SSLCertificateKeyFile {{ ssl_certificate_key_file }}
+    
+    <Directory {{ document_root }}>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog {{ log_dir }}/ssl_error.log
+    CustomLog {{ log_dir }}/ssl_access.log combined
+</VirtualHost>
+{% endif %}
+

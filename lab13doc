@@ -1,0 +1,5 @@
+#copy httpd.j2 file 
+#
+#Check lab13.yaml file
+ansible-playbook -i inventory.yaml lab13.yaml
+

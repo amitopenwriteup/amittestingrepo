@@ -1,0 +1,28 @@
+---
+- name: Verify apache installation
+  hosts: all
+  vars:
+    server_name: myhost
+    myport: 80
+    server_admin: root
+    document_root: test
+    log_dir: /var/log
+    enable_ssl: false
+  become: true
+  become_user: amit
+  tasks:
+    - name: Write the apache config file
+      ansible.builtin.template:
+        src: httpd.j2
+        dest: /tmp/httpd.conf
+      notify:
+        - Restart apache
+    - name: Ensure apache is running
+      ansible.builtin.service:
+        name: apache2
+        state: started
+  handlers:
+    - name: Restart apache
+      ansible.builtin.service:
+        name: apache2
+        state: restarted
