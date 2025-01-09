@@ -1,0 +1,6 @@
+- name: Print message
+  ansible.builtin.debug:
+    var: my_msg_var
+  tags:
+    - print_message
+

@@ -1,0 +1,7 @@
+- name: Install Apache
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+  tags:
+    - apache_install
+
