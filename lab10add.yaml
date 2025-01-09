@@ -1,0 +1,9 @@
+- name: My play with dynamic vars
+  hosts: all
+  vars_files:
+    - "{{ dynamic_var_file }}"
+  tasks:
+    - name: Show variable
+      ansible.builtin.debug:
+        var: my_msg_var 
+
