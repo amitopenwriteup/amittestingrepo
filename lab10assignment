@@ -1,5 +1,5 @@
 #set is_enabled value false and check
 #
-#Write one more module where you can restart service
+#Write one more play where you can restart service
 #
 #Check service module
