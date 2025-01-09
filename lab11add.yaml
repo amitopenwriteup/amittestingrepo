@@ -1,0 +1,22 @@
+- name: Install module
+  hosts: all
+  become: true
+  become_user: amit
+  tasks:
+    - name: Install Apache
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+      register: apache_install_result
+
+    - name: Debug the installation result
+      ansible.builtin.debug:
+        msg: "The Apache package was installed or updated successfully."
+      when: apache_install_result.changed
+
+    - name: Debug package already installed
+      ansible.builtin.debug:
+        msg: "The Apache package is already installed."
+      when: apache_install_result.changed == false
+  tags: apache_install
+
