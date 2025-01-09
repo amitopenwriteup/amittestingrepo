@@ -1,7 +1,0 @@
-- name: Check Boolean value
-  ansible.builtin.debug:
-    msg: "Variable is true"
-  when: is_enabled
-  tags:
-    - check_test
-

@@ -1,5 +1,0 @@
-- name: Ping remote hosts
-  ansible.builtin.ping:
-  tags:
-    - print_message
-
