@@ -1,0 +1,17 @@
+---
+- name: Install Apache HTTP Server
+  hosts: all
+  become: true
+  become_user: root
+  vars_prompt:
+    - name: packagename
+      prompt: What is your package?
+      private: false
+  tasks:
+    - name: Install Apache2
+      ansible.builtin.apt:
+        name: "{{ packagename }}"
+        state: present
+        update_cache: yes
+      tags: apache_install
+
