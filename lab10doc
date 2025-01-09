@@ -1,0 +1,2 @@
+ansible-playbook -i inventory2.ini lab10.yaml --extra-vars "apache_package=apache2"
+
