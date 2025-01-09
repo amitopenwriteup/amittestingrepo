@@ -12,7 +12,7 @@
 - name: Install module
   hosts: all
   become: true
-  become_user: amit
+  become_user: root
   tasks:
    - name: install apace
      ansible.builtin.apt:
