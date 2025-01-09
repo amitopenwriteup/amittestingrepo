@@ -1,0 +1,5 @@
+- name: firstplay
+  hosts: all
+  tasks:
+    - name: pingtask
+      ansible.builtin.ping:

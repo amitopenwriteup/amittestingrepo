@@ -1,0 +1,47 @@
+- name: Merged Playbook
+  hosts: all
+  become: true
+  become_user: root
+  vars:
+    my_msg_var: Hello Learners
+    is_enabled: true
+  tasks:
+    - name: Ping remote hosts
+      ansible.builtin.ping:
+      tags: 
+        - print_message
+
+    - name: Print message
+      ansible.builtin.debug:
+        var: my_msg_var
+      tags: 
+        - print_message
+
+    - name: Install Apache
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+      tags: 
+        - apache_install
+
+    - name: Check Boolean value
+      ansible.builtin.debug:
+        msg: "Variable is true"
+      when: is_enabled
+      tags: 
+        - check_test
+
+    - name: Restart everything
+      ansible.builtin.command:
+        cmd: echo "This task will restart the web services"
+      notify: 
+        - Restart Apache
+
+  handlers:
+    - name: Restart Apache
+      ansible.builtin.service:
+        name: apache2
+        state: started
+      listen: 
+        - Restart web services
+

@@ -1,0 +1,11 @@
+---
+- include_tasks: ping.yml
+- include_tasks: print_message.yml
+- include_tasks: install_apache.yml
+- include_tasks: check_boolean.yml
+- name: Restart everything
+  ansible.builtin.command:
+    cmd: echo "This task will restart the web services"
+  notify:
+    - Restart Apache
+

@@ -8,10 +8,12 @@
       ansible.builtin.apt:
         name: apache2
         state: present
+        update_cache: yes
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
         src: index.html
         dest: /tmp/html
         owner: amit
         group: amit
-        mode: '0644'
+        mode: '0644i'
+
