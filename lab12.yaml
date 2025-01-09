@@ -2,7 +2,7 @@
 - name: linux
   hosts: all
   become: true
-  become_user: amit
+  become_user: root
   vars:
     package_names:
       - sshd
