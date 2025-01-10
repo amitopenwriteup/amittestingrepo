@@ -1,0 +1,19 @@
+1) Create a random vault password
+
+openssl rand -base64 2048 > ansible-vault.pass
+
+
+2) Create vault file using vault passfile
+
+ansible-vault create vault_with_bas64_pass.yml --vault-password-file=ansible-vault.pass
+
+3)In vault file fill this entry
+
+my_vault: "my passkey test"
+
+4) Run the command
+
+ ansible-playbook -i inventory2.ini lab17.yaml -e @vault_with_bas64_pass.yml --vault-password-file=ansible-vault.pass
+
+5) ansible-vault view vault_with_bas64_pass.yml --vault-password-file=ansible-vault.pass
+
