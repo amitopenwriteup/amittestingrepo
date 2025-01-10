@@ -1,0 +1,6 @@
+1) Environment vaule
+
+export ANSIBLE_VAULT_PASSWORD_FILE=ansible-vault.pass
+
+2) ansible-playbook -i inventory2.ini lab17.yaml -e @vault_with_bas64_pass.yml
+
