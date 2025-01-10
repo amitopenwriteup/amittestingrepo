@@ -1,0 +1,7 @@
+1) Create a new repo on GitHub
+2) Add,commit and push
+3) go to galaxy home page, collection-->api-token
+4) ansible-galaxy import <GitHub user name> <repo name on github> --token <token id>
+example
+
+ansible-galaxy import amitopenwriteup myansiblerole --token <tokenid>
