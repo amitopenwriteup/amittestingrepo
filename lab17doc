@@ -1,0 +1,13 @@
+1) Run the below command
+
+ansible-vault create vault1.yaml
+
+2) It will prompt for password
+
+3) It will open yml, make below entry
+
+my_vault: "welcome to vault"
+
+4) lab17.yml
+
+5) ansible-playbook -i inventory2.ini lab17.yaml -e @vault1.yaml  --ask-vault-pass

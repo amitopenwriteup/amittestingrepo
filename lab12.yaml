@@ -9,7 +9,7 @@
       - apache2
   tasks:
     - name: "Check packages are installed"
-      command: which "{{ item }}"
+      command: systemctl status "{{ item }}" |grep dead
       loop: "{{ package_names }}"
       register: package_check
       ignore_errors: true
